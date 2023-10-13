@@ -1,9 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  distDir:'../docs',
-  output: 'export',
-  assetPrefix: '.',
+  //distDir:'../docs',
+  //assetPrefix: '.',
+  //output: 'export',
 }
 
 module.exports = nextConfig
