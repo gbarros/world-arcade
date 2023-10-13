@@ -2,8 +2,8 @@
 const nextConfig = {
   reactStrictMode: true,
   distDir:'../docs',
-  output: 'export',
   assetPrefix: '.',
+  output: 'export',
 }
 
 module.exports = nextConfig
