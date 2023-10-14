@@ -4,19 +4,21 @@ import Footer from "@/components/footer";
 import { Col, Button } from "react-bootstrap";
 
 async function addRemoteDevNet() {
+  if (!process.env.NEXT_PUBLIC_RPC_URL) throw new Error("Undefined RPC url.");
+  if (!process.env.NEXT_PUBLIC_EXPLORER_URL) throw new Error("Undefined explorer url.");
   try {
     const result = await (window as any).ethereum?.request({
       method: "wallet_addEthereumChain",
       params: [{
         chainId: "0x7A69",
-        rpcUrls: ["https://api.gabrielbarros.dev:8545"],
+        rpcUrls: [process.env.NEXT_PUBLIC_RPC_URL],
         chainName: "World Arcade Devnet",
         nativeCurrency: {
-          name: "hardEth",
-          symbol: "hEth",
+          name: "eth",
+          symbol: "ETH",
           decimals: 18
         },
-        blockExplorerUrls: ["https://api.gabrielbarros.dev/explorer"]
+        blockExplorerUrls: [process.env.NEXT_PUBLIC_EXPLORER_URL]
       }]
     });
   } catch (error) {
@@ -53,11 +55,11 @@ export default function About() {
         <ol>
           <li>Mannually add a new network</li>
           <blockquote>
-            <p>Address: <a href="http://api.gabrielbarros.dev:8545">http://api.gabrielbarros.dev:8545</a>
+            <p>Address: {process.env.NEXT_PUBLIC_RPC_URL}
             </p>
             <p>Chain ID: 0x7A69</p>
           </blockquote>
-          <li>Click button to automatically add it.
+          <li>Click button to automatically add it. 
             <Button variant="outline-light" className="text-center" onClick={() => { addRemoteDevNet() }}>
               Add Network to Metask
             </Button>
