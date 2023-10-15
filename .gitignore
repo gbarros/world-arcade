@@ -29,3 +29,5 @@ cartridges
 *.sqfs
 *.rivlog
 *.outcard
+public
+.DS_Store
