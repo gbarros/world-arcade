@@ -1,7 +1,6 @@
-import Container from "react-bootstrap/Container";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import { Col, Button } from "react-bootstrap";
+import { Col, Button, Container } from "react-bootstrap";
 
 async function addRemoteDevNet() {
   if (!process.env.NEXT_PUBLIC_RPC_URL) throw new Error("Undefined RPC url.");
@@ -30,7 +29,7 @@ export default function About() {
   return (
     <Container>
       <Header activeKey="/about" />
-      <Col md="auto" className='justify-content-md-center bg-light shadow-5 text-dark'>
+      <Container className='justify-content-md-center bg-light shadow-5 text-dark' style={{wordWrap:'break-word'}} >
         <h1 id="instructions">Instructions</h1>
         <p>In order to play you are going to configure your metamask wallet.</p>
         <p>This game is running based on a devnet (hardhat node).</p>
@@ -74,7 +73,7 @@ export default function About() {
             </Button>
           </li>
         </ol>
-      </Col>
+      </Container>
       <Footer />
     </Container >
   );
